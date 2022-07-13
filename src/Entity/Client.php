@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -46,12 +45,6 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'string', length: 25)]
     private $ville;
-
-    #[ORM\OneToMany(mappedBy: 'id_client', targetEntity: Reservation::class)]
-    private $reservations;
-
-    #[ORM\OneToMany(mappedBy: 'pro', targetEntity: Reservation::class)]
-    private $appointment;
 
     public function __construct()
     {
@@ -228,66 +221,6 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVille(string $ville): self
     {
         $this->ville = $ville;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Reservation>
-     */
-    public function getReservations(): Collection
-    {
-        return $this->reservations;
-    }
-
-    public function addReservation(Reservation $reservation): self
-    {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations[] = $reservation;
-            $reservation->setIdClient($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReservation(Reservation $reservation): self
-    {
-        if ($this->reservations->removeElement($reservation)) {
-            // set the owning side to null (unless already changed)
-            if ($reservation->getIdClient() === $this) {
-                $reservation->setIdClient(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Reservation>
-     */
-    public function getAppointment(): Collection
-    {
-        return $this->appointment;
-    }
-
-    public function addAppointment(Reservation $appointment): self
-    {
-        if (!$this->appointment->contains($appointment)) {
-            $this->appointment[] = $appointment;
-            $appointment->setPro($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAppointment(Reservation $appointment): self
-    {
-        if ($this->appointment->removeElement($appointment)) {
-            // set the owning side to null (unless already changed)
-            if ($appointment->getPro() === $this) {
-                $appointment->setPro(null);
-            }
-        }
 
         return $this;
     }
