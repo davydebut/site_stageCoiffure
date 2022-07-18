@@ -1,0 +1,59 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>380</x><y>180</y><w>290</w><h>230</h></coordinates><panel_attributes>_object: Client_
+--
+fg=green
+fontsize=15
+style=autoresize
+id: Long="36548"
+firstname: String Varchar="250"
+lastname: String Varchar="250"
+email: String VARCHAR="250"
+password: hash String VARCHAR="250"
+date_de_naissance: Date
+genre: (radio) String / ENUM
+adresse: String VARCHAR="250"
+code_postal: Smallint
+ville: String Varchar="25"</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>830</x><y>200</y><w>220</w><h>140</h></coordinates><panel_attributes>_object: Prestation_
+--
+fg=green
+fontsize=15
+style=autoresize
+id: Long="36548"
+name: String VARCHAR="255"
+prix: Int FLOAT
+duree: time
+genre: String / Enum</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>830</x><y>440</y><w>250</w><h>150</h></coordinates><panel_attributes>_object: Reservation_
+--
+fg=green
+fontsize=15
+style=autoresize
+id: Long="36548"
+id_client
+id_pro
+id_prestation
+status
+heure_de_rendez_vous: DATETIME</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>920</x><y>330</y><w>100</w><h>130</h></coordinates><panel_attributes>lt=-
+m1=0..n
+m2=1
+Appartient &gt;</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>0</y><w>250</w><h>120</h></coordinates><panel_attributes>_object: Contact_
+--
+fg=green
+fontsize=15
+style=autoresize
+id: Long="36548"
+firstname: String VARCHAR="250"
+email: String VARCHAR="250"
+message: TEXT</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>1030</x><y>390</y><w>140</w><h>70</h></coordinates><panel_attributes>Stripe pour les factures
+bg=blue
+transparency=0
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>660</x><y>360</y><w>260</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+peut avoir &gt;</panel_attributes><additional_attributes>10;20;220;20;220;80</additional_attributes></element><element><id>UMLNote</id><coordinates><x>660</x><y>580</y><w>190</w><h>110</h></coordinates><panel_attributes>la propriété status permet
+de filtrer les rendez-vous
+qui s'affiche sur les calendriers
+des professionnels seulement
+si le status est confirmé
+bg=blue
+style=autoresize
+transparency=0
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
