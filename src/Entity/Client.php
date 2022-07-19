@@ -5,10 +5,12 @@ namespace App\Entity;
 use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
+#[UniqueEntity(fields: ['firstname'], message: 'There is already an account with this firstname')]
 class Client implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -34,13 +36,13 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'date')]
     private $date_de_naissance;
 
-    #[ORM\Column(type: 'array')]
-    private $genre = [];
+    #[ORM\Column(type: 'string')]
+    private $genre;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $adresse;
 
-    #[ORM\Column(type: 'smallint')]
+    #[ORM\Column(type: 'integer')]
     private $code_postal;
 
     #[ORM\Column(type: 'string', length: 25)]
@@ -177,12 +179,12 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getGenre(): ?array
+    public function getGenre(): ?string
     {
         return $this->genre;
     }
 
-    public function setGenre(array $genre): self
+    public function setGenre(string $genre): self
     {
         $this->genre = $genre;
 
