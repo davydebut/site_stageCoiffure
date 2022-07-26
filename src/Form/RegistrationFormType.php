@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Client;
 use App\Config\Genre;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -63,7 +64,18 @@ class RegistrationFormType extends AbstractType
                 'class' => Genre::class,
                 'expanded' => true,
                 'multiple' => false,
+                'mapped' => false,
             ])
+            /* ->get('genre')->addModelTransformer(new CallbackTransformer(
+                // transform the array to a string
+                function ($genreAsArray) {
+                    return implode(', ', $genreAsArray);
+                },
+                // transform the string back to an array
+                function ($genreAsString) {
+                    return explode(', ', $genreAsString);
+                }
+            )) */
             ->add('adresse', TextareaType::class) // utiliser l'api : https://api-adresse.data.gouv.fr/search/?q=nomdevotreadresse
             ->add('code_postal', IntegerType::class)
             ->add('ville', TextType::class)

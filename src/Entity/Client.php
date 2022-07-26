@@ -18,7 +18,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'integer')]
     private $id;
 
-    #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[ORM\Column(type: 'string', length: 180)]
     private $firstname;
 
     #[ORM\Column(type: 'json')]
@@ -30,7 +30,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 255)]
     private $lastname;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, unique: true)]
     private $email;
 
     #[ORM\Column(type: 'date')]
@@ -78,7 +78,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->firstname;
+        return (string) $this->email;
     }
 
     /**
@@ -86,7 +86,7 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->firstname;
+        return (string) $this->email;
     }
 
     /**
@@ -225,5 +225,10 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
         $this->ville = $ville;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->firstname;
     }
 }

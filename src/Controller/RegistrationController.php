@@ -22,6 +22,9 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // value genre
+
+            // dd($form->get('genre')->getData()->getValue()); 
             // encode the plain password
             $user->setPassword(
             $userPasswordHasher->hashPassword(
@@ -29,7 +32,8 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            $user->setGenre($form->get('genre')->getData()->getValue());
+            // dd($user);
             // delimeter avec une condition le code postal
 
             $entityManager->persist($user);
