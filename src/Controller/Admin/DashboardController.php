@@ -44,5 +44,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
         yield MenuItem::linkToLogout('Logout', 'fa fa-right-from-bracket');
+        yield MenuItem::linkToRoute('Home', 'fa fa-arrow-rotate-left', 'home');
     }
 }
