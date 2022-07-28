@@ -18,10 +18,15 @@
     {% endblock %}
   </head>
   <body>
-  <div class="wrapper">
-  {% block logo %}
-  {% endblock %}
-  </div>
+    <style>
+      .prestations:hover {
+        color: red;
+      }
+    </style>
+    {% block logo %}
+
+    {% endblock %}
+
     {% include 'navbar.html.twig' %}
     {% block body %}
 

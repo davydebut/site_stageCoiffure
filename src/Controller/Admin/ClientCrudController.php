@@ -7,6 +7,7 @@ use App\Entity\Client;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
@@ -41,6 +42,8 @@ class ClientCrudController extends AbstractCrudController
             TextField::new('adresse'),
             NumberField::new('code_postal'),
             TextField::new('ville'),
+            BooleanField::new('promotions'),
+            BooleanField::new('alerteSMS')
         ];
     }
 

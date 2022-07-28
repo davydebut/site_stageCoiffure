@@ -1,27 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ path('home') }}">Acceuil</a>
+<nav class="navbar navbar-expand-lg navbar-light p-0">
+  <div class="collapse navbar-collapse ms-5" id="navbarNav">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4 text-uppercase">
+      <li class="nav-item ms-5">
+        <a class="nav-link text-white" href="#">Le salon</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Le salon</a>
+        <a class="nav-link text-white" href="#">Photo</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Photo</a>
+        <a class="nav-link text-white" href="#">L'équipe</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">L'équipe</a>
+        <a class="nav-link text-white" href="#">Nos produits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Nos produits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Réservations</a>
+        <a class="nav-link text-white" href="#">Réservations</a>
       </li>
     </ul>
+    <div>
+    {% if app.user %}
+      <a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Mon compte</a>
+    </div>
+    {% else %}
+      <a class="btn btn-outline-primary me-5" href="{{ path('admin') }}" role="button">admin</a>
+    {% endif %}
     <div>
       <a class="btn btn-outline-primary me-5" href="{{ path('app_login') }}" role="button">Connexion</a>
     </div>

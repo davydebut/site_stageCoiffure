@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+  Hello UtilisateurController!
+{% endblock %}
+
+{% block body %}
+  {# <pre>{{ dump(utilisateurInfos) }}</pre> #}
+
+  {# <h1>id={{id}}</h1> #}
+
+  <div class="container">
+    {{ form_start(formulaire) }}
+    <ul class="list-group">
+      <div class="row justify-content-evenly gy-3">
+        <div class="col-5">
+          <li class="list-group-item">{{ form_widget(formulaire.firstname, { attr: { class: 'form-control', placeholder: 'Firstname' } }) }}</li>
+        </div>
+        <div class="col-5">
+          <li class="list-group-item">{{ form_widget(formulaire.lastname, { attr: { class: 'form-control', placeholder: 'Lastname' } }) }}</li>
+        </div>
+        <div class="col-5">
+          <li class="list-group-item">{{ form_widget(formulaire.email, { attr: { class: 'form-control', placeholder: 'Email address' } }) }}</li>
+        </div>
+        <div class="col-5">
+          <li class="list-group-item">{{ form_widget(formulaire.adresse, { attr: { class: 'form-control', placeholder: 'Adresse' } }) }}</li>
+        </div>
+        <div class="col-5">
+          <li class="list-group-item">{{ form_widget(formulaire.date_de_naissance, { attr: { class: 'form-control', placeholder: 'Date de naissance' } }) }}</li>
+        </div>
+        <div class="col-5 gy-4">
+          <div class="d-flex justify-content-between">
+            {% for personne in formulaire.genre %}
+              <div class="fs-3 d-flex align-items-center">{{ form_widget(personne, { attr: { class: 'form-check-input me-2 mt-1', checked: 'true' } }) }}
+                {{ form_label(personne) }}</div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-5">
+          <li class="list-group-item">{{ form_widget(formulaire.password.first, { attr: { class: 'form-control', placeholder: 'Modifier le mot de passe' } }) }}</li>
+        </div>
+        <div class="col-5">
+          <li class="list-group-item">
+            {{ form_widget(formulaire.password.second, { attr: { class: 'form-control', placeholder: 'Confirmer le mot de passe' } }) }}
+            {# <input type="password" name="" id="" class="form-control" placeholder="Confirmer le mot de passe" /> #}
+          </li>
+        </div>
+        <div class="col-5">{{ form_widget(formulaire.code_postal, { attr: { class: 'form-control', placeholder: 'Code postal' } }) }}</div>
+        <div class="col-5">{{ form_widget(formulaire.ville, { attr: { class: 'form-control', placeholder: 'Ville' } }) }}</div>
+        <div class="col-10">
+          <div class="form-check form-switch">
+            {{ form_widget(formulaire.alerteSMS, { attr: { class: 'form-check-input' } }) }}
+            {{ form_label(formulaire.alerteSMS) }}
+            {# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" />
+            <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les alertes SMS</label> #}
+          </div>
+          <div class="form-check form-switch">
+            {{ form_widget(formulaire.promotions, { attr: { class: 'form-check-input' } }) }}
+            {{ form_label(formulaire.promotions) }}
+            {# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" /> #}
+            {# <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les messages promotionnels</label> #}
+          </div>
+        </div>
+      </div>
+    </ul>
+    <div class="row justify-content-center">
+      <div class="col col-lg-2">
+        <button type="submit" class="btn btn-outline-primary">Enregistrer</button>
+      </div>
+    </div>
+    {{ form_end(formulaire) }}
+  </div>
+{% endblock %}

@@ -13,10 +13,10 @@ class HomeController extends AbstractController
     {
         return $this->render('home/index.html.twig', [
             'controller_name' => 'LEA.C COIFFURE STUDIO',
-            'title' => 'LEA.C COIFFURE STUDIO',
-            'message' => 'BIENVENUE À
-            LEA COIFFURE STUDIO
-            le meilleur endroit pour une nouvelle coiffure raffraichissante !',
+            'title' => 'BIENVENUE À',
+            'description' => 'LEA.C COIFFURE STUDIO',
+            'message' => 'le meilleur endroit pour une nouvelle',
+            'suite' => 'coiffure raffraichissante !',
         ]);
     }
 }

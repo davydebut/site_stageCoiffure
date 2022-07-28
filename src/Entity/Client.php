@@ -48,6 +48,12 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'string', length: 25)]
     private $ville;
 
+    #[ORM\Column(type: 'boolean')]
+    private $promotions;
+
+    #[ORM\Column(type: 'boolean')]
+    private $alerteSMS;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -230,5 +236,29 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString()
     {
         return $this->firstname;
+    }
+
+    public function isPromotions(): ?bool
+    {
+        return $this->promotions;
+    }
+
+    public function setPromotions(bool $promotions): self
+    {
+        $this->promotions = $promotions;
+
+        return $this;
+    }
+
+    public function isAlerteSMS(): ?bool
+    {
+        return $this->alerteSMS;
+    }
+
+    public function setAlerteSMS(bool $alerteSMS): self
+    {
+        $this->alerteSMS = $alerteSMS;
+
+        return $this;
     }
 }
