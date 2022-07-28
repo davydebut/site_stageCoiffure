@@ -4,7 +4,7 @@
   LEA.C
 {% endblock %}
 {% block logo %}
-  <div class="wrapper d-flex align-items-center">
+  <div class="wrapper d-flex align-items-center mt-5 ms-5">
     <a href="{{ path('home') }}" class="nav-link p-0 w-100 d-flex">
       <img src="{{ asset('uploads/images/logo-removebg-preview.png') }}" alt="logo" width="120" height="96" class="d-inline-block align-text-center me-2" />
       <div class="d-block text-uppercase lh-1">
@@ -13,7 +13,7 @@
       </div>
     </a>
   </div>
-  <div class="w-50 bg-danger position-absolute top-0" style="height: 40rem; border-radius: 0 80px 0 0; z-index: -1"></div>
+  <div class="w-50 position-absolute top-0" style="height: 50rem; border-radius: 0 80px 0 0; z-index: -1; background-color: #8E7C68;"></div>
 {% endblock %}
 {% block body %}
   {# <style>
@@ -39,24 +39,30 @@
     </ul>
 </div> #}
   {# <div class="w-50 bg-danger position-absolute top-0" style="height: 20rem; border-radius: 0 80px 0 0"></div> #}
-  <div class="container-fluid">
-    <div class="row justify-content-start ms-5">
-      <div class="col-md-4 ms-5" style="margin-top: 10rem;">
-        <div class="card bg-transparent border-0 text-white">
+  <div class="container-fluid mt-5">
+    <div class="row justify-content-start ms-5 mt-5 mb-5">
+      <div class="col-md-4 ms-5 mt-5">
+        <div class="card bg-transparent border-0 text-white ms-5 mt-5">
           <div class="card-body">
             <h3>{{ title }}</h3>
             <h3>{{ description }}</h3>
             <p class="fs-5 mb-0">{{ message }}</p>
             <p class="lh-1 fs-5">{{ suite }}</p>
             <div class="d-inline-flex justify-content-between">
-              <a href="{{ path('app_login') }}" class="btn btn-light text-danger">Prendre rendez-vous</a>
+              <a href="{{ path('app_login') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
               <a href="{{ path('app_login') }}" class="btn btn-outline-light me-5 ms-4 prestations">Nos prestations</a>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-5">
         <img src="{{ asset('uploads/images/5c6f6a87579871.5e01e00d36ff8.jpg') }}" alt="" class="img-fluid border border-white border-5 p-3 bg-white" style="border-radius: 0 0 0 80px;" />
+      </div>
+    </div>
+    <div class="row mt-5 justify-content-center">
+      <h1 class="text-uppercase mt-5 text-center">Le salon</h1>
+      <div class="col-md-4">
+        <p class="">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
       </div>
     </div>
   </div>
