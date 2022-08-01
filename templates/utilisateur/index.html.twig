@@ -5,7 +5,6 @@
 {% endblock %}
 
 {% block body %}
-  {# <pre>{{ dump(utilisateurInfos) }}</pre> #}
 
   {# <h1>id={{id}}</h1> #}
 
@@ -31,13 +30,13 @@
         <div class="col-5 gy-4">
           <div class="d-flex justify-content-between">
             {% for personne in formulaire.genre %}
-              <div class="fs-3 d-flex align-items-center">{{ form_widget(personne, { attr: { class: 'form-check-input me-2 mt-1', checked: 'true' } }) }}
+              <div class="fs-3 d-flex align-items-center">{{ form_widget(personne, { attr: { class: 'form-check-input me-2 mt-1'} }) }}
                 {{ form_label(personne) }}</div>
             {% endfor %}
           </div>
         </div>
         <div class="col-5">
-          <li class="list-group-item">{{ form_widget(formulaire.password.first, { attr: { class: 'form-control', placeholder: 'Modifier le mot de passe' } }) }}</li>
+          <li class="list-group-item">{{ form_widget(formulaire.password.first, { attr: { class: 'form-control', placeholder: 'Modifier le mot de passe'} }) }}</li>
         </div>
         <div class="col-5">
           <li class="list-group-item">

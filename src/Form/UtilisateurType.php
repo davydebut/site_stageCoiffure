@@ -7,6 +7,7 @@ use App\Config\Genre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -27,11 +28,13 @@ class UtilisateurType extends AbstractType
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'required' => false,
                 'invalid_message' => 'The password fields must match.',
                 'options' => ['attr' => ['class' => 'password-field']],
-                'required' => true,
                 'first_options'  => ['label' => 'Password'],
                 'second_options' => ['label' => 'Repeat Password'],
+                'empty_data' => '',
+                'mapped' => false,
             ])
             ->add('lastname')
             ->add('email', EmailType::class)
@@ -39,11 +42,10 @@ class UtilisateurType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
             ])
-            ->add('genre', EnumType::class, [
-                'class' => Genre::class,
+            ->add('genre', ChoiceType::class, [
+                'choices' => Genre::getValue(),
                 'expanded' => true,
                 'multiple' => false,
-                'mapped' => false,
             ])
             /* ->get('genre')->addModelTransformer(new CallbackTransformer(
                 // transform the array to a string
@@ -65,8 +67,7 @@ class UtilisateurType extends AbstractType
             ->add('alerteSMS', CheckboxType::class, [
                 'label' => 'Recevoir les alertes SMS',
                 'required' => false,
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
