@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Client;
 use App\Config\Genre;
+use Doctrine\Common\Collections\Expr\Value;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -30,6 +31,7 @@ class UtilisateurType extends AbstractType
                 'type' => PasswordType::class,
                 'required' => false,
                 'invalid_message' => 'The password fields must match.',
+                'invalid_message_parameters' => ['first_options' == 'second_options'],
                 'options' => ['attr' => ['class' => 'password-field']],
                 'first_options'  => ['label' => 'Password'],
                 'second_options' => ['label' => 'Repeat Password'],
@@ -44,6 +46,9 @@ class UtilisateurType extends AbstractType
             ])
             ->add('genre', ChoiceType::class, [
                 'choices' => Genre::getValue(),
+                'choice_label' => function ($value) {
+                    return $value;
+                },
                 'expanded' => true,
                 'multiple' => false,
             ])

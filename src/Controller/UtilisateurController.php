@@ -24,16 +24,18 @@ class UtilisateurController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $utilisateur = $form->getData();
             $password = $form->getData()->getPassword();
-            dd($password);
-            if($form->getData('password') != null){ // si le champ contient 60 caractères alors le mot de passe ne change pas
+            // dd(strlen($password));
+            // dd($form->getData('password'));
+            $modifiedPassword = $form->get('password')->getData();
+            if($modifiedPassword != null) {
                 $utilisateur->setPassword(
                     $userPasswordHasher->hashPassword(
                         $this->getUser(),
                         $form->get('password')->getData()
                     )
-                );
+                ); 
             }else{
-                $utilisateur->setPassword($password);
+                $utilisateur->setPassword($password);  
             }
             $entityManager->persist($utilisateur);
             $entityManager->flush();
