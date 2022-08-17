@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
 {
@@ -24,7 +23,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // value genre
 
-            // dd($form->get('genre')->getData()->getValue()); 
+            // dd($form->get('genre')->getData()->getValue());
             // encode the plain password
             $user->setPassword(
             $userPasswordHasher->hashPassword(
@@ -32,7 +31,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-            $user->setGenre($form->get('genre')->getData()->getValue());
+            $user->setGenre($form->get('genre')->getData());
             // dd($user);
             // delimeter avec une condition le code postal
 

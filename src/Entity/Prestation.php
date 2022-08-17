@@ -24,8 +24,8 @@ class Prestation
     #[ORM\Column(type: 'time')]
     private $duree;
 
-    #[ORM\Column(type: 'array')]
-    private $genre = [];
+    #[ORM\Column(type: 'string')]
+    private $genre;
 
     public function __construct()
     {
@@ -73,17 +73,15 @@ class Prestation
         return $this;
     }
 
-    public function getGenre(): ?array
+    public function getGenre(): ?string
     {
         return $this->genre;
     }
 
-    public function setGenre(array $genre): self
+    public function setGenre(string $genre): self
     {
         $this->genre = $genre;
 
         return $this;
     }
 }
-
-// $builder->add('genre', EnumType::class, ['class' => Genre::class]);

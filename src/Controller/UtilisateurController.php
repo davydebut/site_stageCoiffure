@@ -16,7 +16,9 @@ class UtilisateurController extends AbstractController
     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher ): Response
     {
         $utilisateur = $this->getUser();
+        // dd($utilisateur);
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
+        // dd($form);
         //$password = $form->getData()->getPassword();
         //dump($password);
         $form->handleRequest($request);

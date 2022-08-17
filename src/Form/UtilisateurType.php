@@ -3,14 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Client;
-use App\Config\Genre;
-use Doctrine\Common\Collections\Expr\Value;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -45,10 +43,11 @@ class UtilisateurType extends AbstractType
                 'format' => 'yyyy-MM-dd',
             ])
             ->add('genre', ChoiceType::class, [
-                'choices' => Genre::getValue(),
-                'choice_label' => function ($value) {
-                    return $value;
-                },
+                'choices' => [
+                    'Femme' => 'Femme',
+                    'Homme' => 'Homme'
+                ],
+                // 'choice_label' => 'genre',
                 'expanded' => true,
                 'multiple' => false,
             ])

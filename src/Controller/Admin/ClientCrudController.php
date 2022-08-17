@@ -2,19 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use App\Config\Genre;
+
 use App\Entity\Client;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use Symfony\Component\Form\Extension\Core\Type\EnumType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ClientCrudController extends AbstractCrudController
 {
@@ -45,12 +42,6 @@ class ClientCrudController extends AbstractCrudController
             BooleanField::new('promotions'),
             BooleanField::new('alerteSMS')
         ];
-    }
-
-    // Object Genre convert to string
-    public function toString(Genre $object): string
-    {
-        return $object->getValue();
     }
    
 }

@@ -3,14 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Client;
-use App\Config\Genre;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -60,11 +57,12 @@ class RegistrationFormType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd',
             ])
-            ->add('genre', EnumType::class, [
-                'class' => Genre::class,
+            ->add('genre', ChoiceType::class, [
+                'choices' => [
+                    'Femme' => 'Femme',
+                    'Homme' => 'Homme'],
                 'expanded' => true,
-                'multiple' => false,
-                'mapped' => false,
+                'multiple' => false
             ])
             /* ->get('genre')->addModelTransformer(new CallbackTransformer(
                 // transform the array to a string
@@ -79,6 +77,8 @@ class RegistrationFormType extends AbstractType
             ->add('adresse', TextareaType::class) // utiliser l'api : https://api-adresse.data.gouv.fr/search/?q=nomdevotreadresse
             ->add('code_postal', IntegerType::class)
             ->add('ville', TextType::class)
+            ->add('promotions')
+            ->add('alerteSMS')
         ;
     }
 

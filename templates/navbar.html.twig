@@ -1,4 +1,15 @@
-<nav class="navbar navbar-expand-lg p-0 ms-5 {{ path('app_utilisateur') ? 'navbar-dark' : 'navbar-light' }}">
+{# si la route est app_utilisateur alors ajouter la class navbar-dark sinon laisser navbar-light #}
+{% if app.request.get('_route') == 'app_utilisateur' %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+{% else %}
+<nav class="navbar navbar-expand-lg p-0 ms-5 navbar-light">
+{% endif %}
+{# <nav class="navbar navbar-expand-lg p-0 ms-5 {{ path('app_utilisateur') ? 'navbar-dark' : 'navbar-light' }}"> #}
+{# {% if path('app_utilisateur') == true %}
+<nav class="navbar navbar-expand-lg p-0 ms-5 navbar-dark bg-dark">
+{% else %}
+  <nav class="navbar navbar-expand-lg p-0 ms-5 navbar-light">
+{% endif %} #}
   <div class="collapse navbar-collapse ms-5" id="navbarNav">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4 text-uppercase">
       <li class="nav-item ms-5">
