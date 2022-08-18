@@ -4,83 +4,140 @@
 	Hello UtilisateurController!
 {% endblock %}
 
+{% block stylesheets %}
+	<style>
+		#calendar {
+			max-width: 900px;
+			margin: 0 auto;
+		}
+	</style>
+{% endblock %}
+
 {% block body %}
 	{# <h1>id={{id}}</h1> #}
-
-	<div class="container mt-5">
-		{% for message in app.flashes('success') %}
-			<div class="alert alert-success">{{ message }}</div>
-		{% endfor %}
-		{{ form_start(formulaire) }}
-		<ul class="list-group">
-			<div class="row justify-content-evenly gy-3">
-				<div class="col-5">
-					<li class="list-group-item">{{ form_widget(formulaire.firstname, { attr: { class: 'form-control', placeholder: 'Firstname' } }) }}</li>
-				</div>
-				<div class="col-5">
-					<li class="list-group-item">{{ form_widget(formulaire.lastname, { attr: { class: 'form-control', placeholder: 'Lastname' } }) }}</li>
-				</div>
-				<div class="col-5">
-					<li class="list-group-item">{{ form_widget(formulaire.email, { attr: { class: 'form-control', placeholder: 'Email address' } }) }}</li>
-				</div>
-				<div class="col-5">
-					<li class="list-group-item">{{ form_widget(formulaire.adresse, { attr: { class: 'form-control', placeholder: 'Adresse' } }) }}</li>
-				</div>
-				<div class="col-5">
-					<li class="list-group-item">{{ form_widget(formulaire.date_de_naissance, { attr: { class: 'form-control', placeholder: 'Date de naissance' } }) }}</li>
-				</div>
-					<div class="col-5 gy-4"> 
-          <div class="d-flex justify-content-between">
-						<div class="fs-3 d-flex align-items-center">
-            {# <pre>
-              {{ dump(
-                formulaire.genre.children
-              ) }}
-            </pre> #}
-            {% for personne in formulaire.genre.children %}
-							{{ form_widget(personne, { attr: { class: 'form-check-input me-2 mt-1' } }) }}
-              {{ form_label(personne, null, {
+	<div class="d-flex justify-content-center align-items-center mt-4">
+		<div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+			<button class="nav-link active mb-4" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+				<i class="fa fa-solid fa-user fa-7x"></i>
+			</button>
+			<button class="nav-link mb-4" id="v-pills-calendar-tab" data-bs-toggle="pill" data-bs-target="#v-pills-calendar" type="button" role="tab" aria-controls="v-pills-calendar" aria-selected="false">
+				<i class="fas fa-calendar-alt fa-7x"></i>
+			</button>
+			<button class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+				<i class="fas fa-history fa-7x"></i>
+			</button>
+		</div>
+		<div class="tab-content" id="v-pills-tabContent">
+			<div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+				<div class="container mt-5">
+					{% for message in app.flashes('success') %}
+						<div class="alert alert-success">{{ message }}</div>
+					{% endfor %}
+					{{ form_start(formulaire) }}
+					<ul class="list-group">
+						<div class="row justify-content-evenly gy-3">
+							<div class="col-5">
+								<li class="list-group-item">{{ form_widget(formulaire.firstname, { attr: { class: 'form-control', placeholder: 'Firstname' } }) }}</li>
+							</div>
+							<div class="col-5">
+								<li class="list-group-item">{{ form_widget(formulaire.lastname, { attr: { class: 'form-control', placeholder: 'Lastname' } }) }}</li>
+							</div>
+							<div class="col-5">
+								<li class="list-group-item">{{ form_widget(formulaire.email, { attr: { class: 'form-control', placeholder: 'Email address' } }) }}</li>
+							</div>
+							<div class="col-5">
+								<li class="list-group-item">{{ form_widget(formulaire.adresse, { attr: { class: 'form-control', placeholder: 'Adresse' } }) }}</li>
+							</div>
+							<div class="col-5">
+								<li class="list-group-item">{{ form_widget(formulaire.date_de_naissance, { attr: { class: 'form-control', placeholder: 'Date de naissance' } }) }}</li>
+							</div>
+							<div class="col-5 gy-4">
+								<div class="d-flex justify-content-between">
+									<div
+										class="fs-3 d-flex align-items-center">
+										{# <pre>
+																																																																																																																																																																																																																																																																              {{ dump(
+																																																																																																																																																																																																																																																																                formulaire.genre.children
+																																																																																																																																																																																																																																																																              ) }}
+																																																																																																																																																																																																																																																																            </pre> #}
+										{% for personne in formulaire.genre.children %}
+											{{ form_widget(personne, { attr: { class: 'form-check-input me-2 mt-1' } }) }}
+											{{ form_label(personne, null, {
                 'label_attr': {
                   'class': 'form-check-label pe-4'
                 }}) }}
-            {% endfor %}
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+							<div class="col-5">
+								{{ form_errors(formulaire.password.first) }}
+								<li class="list-group-item">{{ form_widget(formulaire.password.first, { attr: { class: 'form-control', placeholder: 'Modifier le mot de passe' } }) }}</li>
+							</div>
+							<div class="col-5">
+								{{ form_errors(formulaire.password.first) }}
+								<li class="list-group-item">
+									{{ form_widget(formulaire.password.second, { attr: { class: 'form-control', placeholder: 'Confirmer le mot de passe' } }) }}
+									{# <input type="password" name="" id="" class="form-control" placeholder="Confirmer le mot de passe" /> #}
+								</li>
+							</div>
+							<div class="col-5">{{ form_widget(formulaire.code_postal, { attr: { class: 'form-control', placeholder: 'Code postal' } }) }}</div>
+							<div class="col-5">{{ form_widget(formulaire.ville, { attr: { class: 'form-control', placeholder: 'Ville' } }) }}</div>
+							<div class="col-10">
+								<div class="form-check form-switch">
+									{{ form_widget(formulaire.alerteSMS, { attr: { class: 'form-check-input' } }) }}
+									{{ form_label(formulaire.alerteSMS) }}
+									{# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" />
+																																																																																																																																																																																																																																																														            <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les alertes SMS</label> #}
+								</div>
+								<div class="form-check form-switch">
+									{{ form_widget(formulaire.promotions, { attr: { class: 'form-check-input' } }) }}
+									{{ form_label(formulaire.promotions) }}
+								{# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" /> #}
+									{# <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les messages promotionnels</label> #}
+								</div>
+							</div>
+						</div>
+					</ul>
+					<div class="row justify-content-center">
+						<div class="col col-lg-2">
+							<button type="submit" class="btn btn-outline-primary">Enregistrer</button>
+						</div>
+					</div>
+					{{ form_end(formulaire) }}
+				</div>
+			</div>
+			<div class="tab-pane fade" id="v-pills-calendar" role="tabpanel" aria-labelledby="v-pills-calendar-tab">
+				<div
+					class="container">
+					{# #calendar #}
+					<div class="row justify-content-evenly">
+						<div class="col-12">
+							<div id="calendar"></div>
 						</div>
 					</div>
 				</div>
-				<div class="col-5">
-					{{ form_errors(formulaire.password.first) }}
-					<li class="list-group-item">{{ form_widget(formulaire.password.first, { attr: { class: 'form-control', placeholder: 'Modifier le mot de passe' } }) }}</li>
-				</div>
-				<div class="col-5">
-					{{ form_errors(formulaire.password.first) }}
-					<li class="list-group-item">
-						{{ form_widget(formulaire.password.second, { attr: { class: 'form-control', placeholder: 'Confirmer le mot de passe' } }) }}
-						{# <input type="password" name="" id="" class="form-control" placeholder="Confirmer le mot de passe" /> #}
-					</li>
-				</div>
-				<div class="col-5">{{ form_widget(formulaire.code_postal, { attr: { class: 'form-control', placeholder: 'Code postal' } }) }}</div>
-				<div class="col-5">{{ form_widget(formulaire.ville, { attr: { class: 'form-control', placeholder: 'Ville' } }) }}</div>
-				<div class="col-10">
-					<div class="form-check form-switch">
-						{{ form_widget(formulaire.alerteSMS, { attr: { class: 'form-check-input' } }) }}
-						{{ form_label(formulaire.alerteSMS) }}
-						{# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" />
-																								            <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les alertes SMS</label> #}
-					</div>
-					<div class="form-check form-switch">
-						{{ form_widget(formulaire.promotions, { attr: { class: 'form-check-input' } }) }}
-						{{ form_label(formulaire.promotions) }}
-					{# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" /> #}
-						{# <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les messages promotionnels</label> #}
-					</div>
-				</div>
-			</div>
-		</ul>
-		<div class="row justify-content-center">
-			<div class="col col-lg-2">
-				<button type="submit" class="btn btn-outline-primary">Enregistrer</button>
 			</div>
 		</div>
-		{{ form_end(formulaire) }}
+		<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+var calendarEl = document.getElementById('calendar');
+var calendar = new FullCalendar.Calendar(calendarEl, {
+themeSystem: 'bootstrap5',
+locale: 'fr',
+timeZone: 'Europe/Paris',
+headerToolbar: {
+	start: 'prev,next today',
+	center: 'title',
+	end: 'dayGridMonth,timeGridWeek'
+}
+});
+calendar.render();
+});
+	</script>
 {% endblock %}
