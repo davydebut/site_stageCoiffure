@@ -6,16 +6,16 @@
 
 {% block stylesheets %}
 	<style>
-		#calendar {
+		{# #calendar {
 			max-width: 900px;
 			margin: 0 auto;
-		}
+		} #}
 	</style>
 {% endblock %}
 
 {% block body %}
 	{# <h1>id={{id}}</h1> #}
-	<div class="d-flex justify-content-center align-items-center mt-4">
+	<div class="d-flex  mt-4">
 		<div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 			<button class="nav-link active mb-4" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">
 				<i class="fa fa-solid fa-user fa-7x"></i>
@@ -113,6 +113,9 @@
 					{# #calendar #}
 					<div class="row justify-content-evenly">
 						<div class="col-12">
+						{# <pre>
+							{{ dump(data) }}
+						</pre> #}
 							<div id="calendar"></div>
 						</div>
 					</div>
@@ -124,7 +127,7 @@
 {% endblock %}
 
 {% block javascripts %}
-	<script>
+	{# <script>
 		document.addEventListener('DOMContentLoaded', function () {
 var calendarEl = document.getElementById('calendar');
 var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -135,9 +138,10 @@ headerToolbar: {
 	start: 'prev,next today',
 	center: 'title',
 	end: 'dayGridMonth,timeGridWeek'
-}
+},
+events: {{ data|raw }}
 });
 calendar.render();
 });
-	</script>
+	</script> #}
 {% endblock %}

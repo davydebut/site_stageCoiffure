@@ -1,5 +1,5 @@
 {# si la route est app_utilisateur alors ajouter la class navbar-dark sinon laisser navbar-light #}
-{% if app.request.get('_route') == 'app_utilisateur' %}
+{% if app.request.get('_route') != 'home' and app.request.get('_route') != 'admin' %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 {% else %}
 <nav class="navbar navbar-expand-lg p-0 ms-5 navbar-light">

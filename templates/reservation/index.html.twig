@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ReservationController!{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    {# si le role est pro affiche que les role_pro #}
+    {% if is_granted('ROLE_PRO') %}
+    {{form_row(form.pro)}}
+    {% else %}
+    {% endif %}
+    {{ form_row(form.pro)}}
+    {{ form_end(form) }}
+{% endblock %}

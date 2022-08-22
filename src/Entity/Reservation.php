@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Entity;
-
+use App\Entity\Client;
 use App\Repository\ReservationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
@@ -20,22 +20,19 @@ class Reservation
     #[ORM\Column(type: 'array')]
     private $status = [];
 
-    #[ORM\ManyToOne(targetEntity: client::class, inversedBy: 'reservations')]
+    #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
     private $id_client;
-
-    #[ORM\ManyToOne(targetEntity: prestation::class, inversedBy: 'reservations')]
-    #[ORM\JoinColumn(nullable: false)]
-    private $prestation;
 
     #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'appointment')]
     #[ORM\JoinColumn(nullable: false)]
     private $pro;
 
-    public function __construct()
-    {
-        $this->prestation = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(targetEntity: Prestation::class, inversedBy: 'reservations')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $prestation;
+
+   
 
     public function getId(): ?int
     {
@@ -66,26 +63,14 @@ class Reservation
         return $this;
     }
 
-    public function getIdClient(): ?client
+    public function getIdClient(): ?Client
     {
         return $this->id_client;
     }
 
-    public function setIdClient(?client $id_client): self
+    public function setIdClient(?Client $id_client): self
     {
         $this->id_client = $id_client;
-
-        return $this;
-    }
-
-    public function getPrestation(): ?prestation
-    {
-        return $this->prestation;
-    }
-
-    public function setPrestation(?prestation $prestation): self
-    {
-        $this->prestation = $prestation;
 
         return $this;
     }
@@ -98,6 +83,18 @@ class Reservation
     public function setPro(?Client $pro): self
     {
         $this->pro = $pro;
+
+        return $this;
+    }
+
+    public function getPrestation(): ?Prestation
+    {
+        return $this->prestation;
+    }
+
+    public function setPrestation(?Prestation $prestation): self
+    {
+        $this->prestation = $prestation;
 
         return $this;
     }
