@@ -53,19 +53,10 @@
 							</div>
 							<div class="col-5 gy-4">
 								<div class="d-flex justify-content-between">
-									<div
-										class="fs-3 d-flex align-items-center">
-										{# <pre>
-																																																																																																																																																																																																																																																																              {{ dump(
-																																																																																																																																																																																																																																																																                formulaire.genre.children
-																																																																																																																																																																																																																																																																              ) }}
-																																																																																																																																																																																																																																																																            </pre> #}
+									<div class="fs-3 d-flex align-items-center">
 										{% for personne in formulaire.genre.children %}
 											{{ form_widget(personne, { attr: { class: 'form-check-input me-2 mt-1' } }) }}
-											{{ form_label(personne, null, {
-                'label_attr': {
-                  'class': 'form-check-label pe-4'
-                }}) }}
+											{{ form_label(personne, null, {'label_attr': {'class': 'form-check-label pe-4' }})}}
 										{% endfor %}
 									</div>
 								</div>
@@ -88,7 +79,7 @@
 									{{ form_widget(formulaire.alerteSMS, { attr: { class: 'form-check-input' } }) }}
 									{{ form_label(formulaire.alerteSMS) }}
 									{# <input type="checkbox" id="flexSwitchCheckDefault" class="form-check-input" />
-																																																																																																																																																																																																																																																														            <label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les alertes SMS</label> #}
+									<label class="form-check-label" for="flexSwitchCheckDefault">Recevoir les alertes SMS</label> #}
 								</div>
 								<div class="form-check form-switch">
 									{{ form_widget(formulaire.promotions, { attr: { class: 'form-check-input' } }) }}
@@ -108,18 +99,26 @@
 				</div>
 			</div>
 			<div class="tab-pane fade" id="v-pills-calendar" role="tabpanel" aria-labelledby="v-pills-calendar-tab">
-				<div
-					class="container">
-					{# #calendar #}
-					<div class="row justify-content-evenly">
-						<div class="col-12">
-						{# <pre>
-							{{ dump(data) }}
-						</pre> #}
-							<div id="calendar"></div>
-						</div>
-					</div>
-				</div>
+				<table class="table">
+					<thead>
+						<tr>
+						<th scope="col">Heure de rendez-vous</th>
+						<th scope="col">Coiffeur</th>
+						<th scope="col">Status</th>
+						<th scope="col">Prestations</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for reservation in reservations %}
+						<tr>
+						<th scope="row">{{reservation.HeureDeRendezVous|date("d/m/Y à h:s")}}</th>
+						<td>{{reservation.pro}}</td>
+						<td>{{reservation.status[0]}}</td>
+						<td>{{reservation.prestation}}</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>		
 			</div>
 		</div>
 		<div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>

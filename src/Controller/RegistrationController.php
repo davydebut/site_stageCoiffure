@@ -22,7 +22,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // value genre
-
+            // dd($user);
             // dd($form->get('genre')->getData()->getValue());
             // encode the plain password
             $user->setPassword(
@@ -34,7 +34,8 @@ class RegistrationController extends AbstractController
             $user->setGenre($form->get('genre')->getData());
             // dd($user);
             // delimeter avec une condition le code postal
-
+            $user->setIsPro(false);
+            // dd($user);
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email

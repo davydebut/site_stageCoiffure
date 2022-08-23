@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\UtilisateurType;
+use App\Repository\ReservationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class UtilisateurController extends AbstractController
 {
     #[Route('/utilisateur', name: 'app_utilisateur')]
-    public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher, ReservationRepository $reservation): Response
     {
         $events = [];
         $rdvs = [];
@@ -31,8 +32,12 @@ class UtilisateurController extends AbstractController
             ];
         }
         $data = json_encode($rdvs);
-        dump($data);
+        // dump($data);
         $utilisateur = $this->getUser();
+        $reservations = $reservation->findBy([
+            'id_client' => $utilisateur 
+        ]);
+        // dd($reservations);
         // dd($utilisateur);
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
         // dd($form);
@@ -66,6 +71,7 @@ class UtilisateurController extends AbstractController
             'utilisateurInfos' => $utilisateur,
             'formulaire' => $form,
             'data' => $data,
+            'reservations' => $reservations
         ]);
     }
 }

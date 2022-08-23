@@ -49,7 +49,11 @@
             <p class="fs-5 mb-0">{{ message }}</p>
             <p class="lh-1 fs-5">{{ suite }}</p>
             <div class="d-inline-flex justify-content-between">
-              <a href="{{ path('app_login') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
+              {% if app.user %}
+                <a href="{{ path('app_reservation') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
+              {% else %}
+                <a href="{{ path('app_login') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
+              {% endif %}
               <a href="{{ path('app_login') }}" class="btn btn-outline-light me-5 ms-4 prestations">Nos prestations</a>
             </div>
           </div>

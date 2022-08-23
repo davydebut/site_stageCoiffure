@@ -54,6 +54,9 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $alerteSMS;
 
+    #[ORM\Column(type: 'boolean')]
+    private $isPro;
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -258,6 +261,18 @@ class Client implements UserInterface, PasswordAuthenticatedUserInterface
     public function setAlerteSMS(bool $alerteSMS): self
     {
         $this->alerteSMS = $alerteSMS;
+
+        return $this;
+    }
+
+    public function isIsPro(): ?bool
+    {
+        return $this->isPro;
+    }
+
+    public function setIsPro(bool $isPro): self
+    {
+        $this->isPro = $isPro;
 
         return $this;
     }

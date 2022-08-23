@@ -40,7 +40,8 @@ class ClientCrudController extends AbstractCrudController
             NumberField::new('code_postal'),
             TextField::new('ville'),
             BooleanField::new('promotions'),
-            BooleanField::new('alerteSMS')
+            BooleanField::new('alerteSMS'),
+            BooleanField::new('isPro')
         ];
     }
    
