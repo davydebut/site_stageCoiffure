@@ -36,7 +36,9 @@
       <div>
         <a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Mon compte</a>
       </div>
+      {% if is_granted('ROLE_ADMIN') %}
       <a class="btn btn-outline-primary" href="{{ path('admin') }}" role="button">admin</a>
+      {% endif %}
       <a class="btn btn-outline-primary me-5" href="{{ path('app_logout') }}" role="button">Déconnexion</a>
     {% else %}
       <div>
