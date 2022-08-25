@@ -17,8 +17,8 @@ class Reservation
     #[ORM\Column(type: 'datetime')]
     private $heure_de_rendez_vous;
 
-    #[ORM\Column(type: 'array')]
-    private $status = [];
+    #[ORM\Column(type: 'string')]
+    private $status;
 
     #[ORM\ManyToOne(targetEntity: Client::class, inversedBy: 'reservations')]
     #[ORM\JoinColumn(nullable: false)]
@@ -51,12 +51,12 @@ class Reservation
         return $this;
     }
 
-    public function getStatus(): ?array
+    public function getStatus(): ?string
     {
         return $this->status;
     }
 
-    public function setStatus(array $status): self
+    public function setStatus(string $status): self
     {
         $this->status = $status;
 

@@ -25,10 +25,8 @@ class ReservationController extends AbstractController
             'isPro' => true
         ]);
         $user = $this->getUser();
-        $status = ['Confirmé'];
         if ($form->isSubmitted() && $form->isValid()) {
             $reservation->setIdClient($user);
-            $reservation->setStatus($status);
             // dd($reservation);
             $entityManager->persist($reservation);
             $entityManager->flush();

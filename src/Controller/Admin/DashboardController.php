@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Prestation;
+use App\Entity\Reservation;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -44,6 +45,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('prestation', 'fas fa-list', Prestation::class);
+        yield MenuItem::linkToCrud('reservation', 'fas fa-list', Reservation::class);
         yield MenuItem::linkToLogout('Logout', 'fa fa-right-from-bracket');
         yield MenuItem::linkToRoute('Home', 'fa fa-arrow-rotate-left', 'home');
     }

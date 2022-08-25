@@ -37,7 +37,11 @@ class UtilisateurController extends AbstractController
         $reservations = $reservation->findBy([
             'id_client' => $utilisateur 
         ]);
-        // dd($reservations);
+        $professionels = $reservation->findBy([
+            'pro' => $utilisateur
+        ]);
+        // dd($professionels);
+        // dd($reservation);
         // dd($utilisateur);
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
         // dd($form);
@@ -71,7 +75,8 @@ class UtilisateurController extends AbstractController
             'utilisateurInfos' => $utilisateur,
             'formulaire' => $form,
             'data' => $data,
-            'reservations' => $reservations
+            'reservations' => $reservations,
+            'professionels' => $professionels
         ]);
     }
 }

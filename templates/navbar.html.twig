@@ -2,7 +2,7 @@
 {% if app.request.get('_route') != 'home' and app.request.get('_route') != 'admin' %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 {% else %}
-<nav class="navbar navbar-expand-lg p-0 ms-5 navbar-light">
+<nav class="navbar sticky-top navbar-expand-lg p-0 navbar-light menu">
 {% endif %}
 {# <nav class="navbar navbar-expand-lg p-0 ms-5 {{ path('app_utilisateur') ? 'navbar-dark' : 'navbar-light' }}"> #}
 {# {% if path('app_utilisateur') == true %}
@@ -33,11 +33,13 @@
       </li>
     </ul>
     {% if app.user %}
-      <div>
+      {% if is_granted('ROLE_PRO') %}
+        <a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Espace Pro</a>
+      {% else %}
         <a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Mon compte</a>
-      </div>
-      {% if is_granted('ROLE_ADMIN') %}
-      <a class="btn btn-outline-primary" href="{{ path('admin') }}" role="button">admin</a>
+      {% endif %}
+      {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PRO') %}
+      <a class="btn btn-outline-primary me-2" href="{{ path('admin') }}" role="button">admin</a>
       {% endif %}
       <a class="btn btn-outline-primary me-5" href="{{ path('app_logout') }}" role="button">Déconnexion</a>
     {% else %}

@@ -1,74 +1,149 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}
-  LEA.C
+LEA.C
 {% endblock %}
 {% block logo %}
-  <div class="wrapper d-flex align-items-center mt-5 ms-5">
-    <a href="{{ path('home') }}" class="nav-link p-0 w-100 d-flex">
-      <img src="{{ asset('uploads/images/logo-removebg-preview.png') }}" alt="logo" width="120" height="96" class="d-inline-block align-text-center me-2" />
-      <div class="d-block text-uppercase lh-1">
-        <h1 class="mb-0 display-4 fw-normal text-white">Lea.C</h1>
-        <p class="fs-6 text-white">Coiffure studio</p>
-      </div>
-    </a>
-  </div>
-  <div class="w-50 position-absolute top-0" style="height: 50rem; border-radius: 0 80px 0 0; z-index: -1; background-color: #8E7C68;"></div>
+<div class="wrapper d-flex align-items-center mt-5 ms-5">
+	<a href="{{ path('home') }}" class="nav-link p-0 w-100 d-flex">
+		<img src="{{ asset('uploads/images/logo-removebg-preview.png') }}" alt="logo" width="120" height="96" class="d-inline-block align-text-center me-2"/>
+		<div class="d-block text-uppercase lh-1">
+			<h1 class="mb-0 display-4 fw-normal text-white">Lea.C</h1>
+			<p class="fs-6 text-white">Coiffure studio</p>
+		</div>
+	</a>
+</div>
+<div class="w-50 position-absolute top-0" style="height: 50rem; border-radius: 0 80px 0 0; z-index: -1; background-color: #8E7C68;"></div>
 {% endblock %}
 {% block body %}
-  {# <style>
-       .example-wrapper {
-         margin: 1em auto;
-         max-width: 800px;
-         width: 95%;
-         font: 18px/1.5 sans-serif;
-       }
-       .example-wrapper code {
-         background: #f5f5f5;
-         padding: 2px 6px;
-       }
-     </style> #}
-
-  {# <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/stagecoiffure/site/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/stagecoiffure/site/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div> #}
-  {# <div class="w-50 bg-danger position-absolute top-0" style="height: 20rem; border-radius: 0 80px 0 0"></div> #}
-  <div class="container-fluid mt-5">
-    <div class="row justify-content-start ms-5 mt-5 mb-5">
-      <div class="col-md-4 ms-5 mt-5">
-        <div class="card bg-transparent border-0 text-white ms-5 mt-5">
-          <div class="card-body">
-            <h3>{{ title }}</h3>
-            <h3>{{ description }}</h3>
-            <p class="fs-5 mb-0">{{ message }}</p>
-            <p class="lh-1 fs-5">{{ suite }}</p>
-            <div class="d-inline-flex justify-content-between">
-              {% if app.user %}
-                <a href="{{ path('app_reservation') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
-              {% else %}
-                <a href="{{ path('app_login') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
-              {% endif %}
-              <a href="{{ path('app_login') }}" class="btn btn-outline-light me-5 ms-4 prestations">Nos prestations</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 mb-5">
-        <img src="{{ asset('uploads/images/5c6f6a87579871.5e01e00d36ff8.jpg') }}" alt="" class="img-fluid border border-white border-5 p-3 bg-white" style="border-radius: 0 0 0 80px;" />
-      </div>
-    </div>
-    <div class="row mt-5 justify-content-center">
-      <h1 class="text-uppercase mt-5 text-center">Le salon</h1>
-      <div class="col-md-4">
-        <p class="">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-        <a href="#" class="btn btn-outline-light" style="color: #8E7C68; border-color:#8E7C68">Voir les photos</a>
-      </div>
-    </div>
-  </div>
+{# <style>
+					.example-wrapper {
+					margin: 1em auto;
+					max-width: 800px;
+					width: 95%;
+					font: 18px/1.5 sans-serif;
+					}
+					.example-wrapper code {
+					background: #f5f5f5;
+					padding: 2px 6px;
+					}
+					</style> #}
+{# <div class="example-wrapper">
+					<h1>Hello {{ controller_name }}! ✅</h1>
+					
+					This friendly message is coming from:
+					<ul>
+					<li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/stagecoiffure/site/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
+					<li>Your template at <code><a href="{{ 'C:/xampp/htdocs/stagecoiffure/site/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
+					</ul>
+					</div> #}
+{# <div class="w-50 bg-danger position-absolute top-0" style="height: 20rem; border-radius: 0 80px 0 0"></div> #}
+	<div class="container-fluid mt-5"> <div class="row justify-content-start ms-5 mt-5 mb-5">
+		<div class="col-md-4 ms-5 mt-5">
+			<div class="card bg-transparent border-0 text-white ms-5 mt-5">
+				<div class="card-body">
+					<h3>
+						{{ title }}
+					</h3>
+					<h3>
+						{{ description }}
+					</h3>
+					<p class="fs-5 mb-0">
+						{{ message }}
+					</p>
+					<p class="lh-1 fs-5">
+						{{ suite }}
+					</p>
+					<div class="d-inline-flex justify-content-between">
+						{% if app.user %}
+							<a href="{{ path('app_reservation') }}" class="btn btn-light" style="color: #8E7C68">Prendre rendez-vous</a>
+						{% else %}
+							<a href="{{ path('app_login') }}" class="btn btn-light" style="color: #8E7C68">
+								Prendre rendez-vous</a>
+						{% endif %}
+						<a href="{{ path('app_login') }}" class="btn btn-outline-light me-5 ms-4 prestations">Nos prestations</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 mb-5">
+			<img src="{{ asset('uploads/images/5c6f6a87579871.5e01e00d36ff8.jpg') }}" alt="" class="img-fluid border border-white border-5 p-3 bg-white" style="border-radius: 0 0 0 80px;"/>
+		</div>
+	</div>
+	<div class="row mt-5 justify-content-center">
+		<div class="col-md-6 mt-5">
+			<img src="{{ asset('uploads/images/About_001-1.jpg') }}" alt="" class="img-fluid w-50 float-start me-5" style="border-radius:80px 0;"/>
+			<div class="col-md-6 offset-md-6">
+				<h1 class="text-uppercase text-center">Le salon</h1>
+				<p class="">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
+																																							of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+																																							professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+																																							consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
+																																							literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
+																																							of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+																																							book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
+																																							Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+			</div>
+			<div class="col-md-6 offset-md-6 mt-5">
+				<a href="#" class="btn btn-outline-light" style="color: #8E7C68; border-color:#8E7C68">Voir les photos</a>
+			</div>
+		</div>
+	</div>
+	<div class="row my-5 pb-5 position-relative">
+		<div class="col-md-6 offset-md-1 mb-3">
+			<h1 class="text-uppercase">Les Tarifs</h1>
+		</div>
+		<div class="col-md-5 offset-md-1">
+			<img src="uploads/images/2000001978323.png" alt="" style="border-radius: 80px 0;" class="float-start w-50"/>
+		</div>
+		<div class="col-md-7 offset-md-3 position-absolute mt-3">
+			<h2 class="text-center text-uppercase my-5">Les coupes</h2>
+			<p class="text-end fs-3 text-break pe-5">
+				Coupe homme 27€ - Barbe 20€ - CH + Barbe 45€ - Coupe courte femme
+																																45€ Coupe mi-long femme 50€ - Coupe longue femme 55€<br>
+				Couleur racines 33€ - Couleur sans ammoniaque 35€
+			</p>
+		</div>
+		<div class="col-md-3 offset-md-2 position-absolute top-50 mt-5">
+			<img src="uploads/images/80976a36583c54f377461f646410e0bb.jpg" alt="" class="w-75" style="border-radius: 80px 0;"/>
+		</div>
+	</div>
+	<div class="row mt-5 pt-5 position-relative">
+		<div class="col-md-6 offset-md-1 mt-5 pt-4">
+			<img src="uploads/images/102017c834008c31305591150f2e504b.jpg" alt="" style="border-radius: 80px 0;"/>
+		</div>
+		<div class="col-md-7 offset-md-3 position-absolute mt-5">
+			<h2 class="text-uppercase mt-3 text-center mb-5">Autres Services</h2>
+			<p class="text-end fs-3 text-break pe-4">
+				Dose de couleur 8€ - Gloss et patines 19€ - Rituels Bain SPA à partir de 29€
+				<br>
+				Mèches, Balayage,Ombré, Painting 30-100€ - L’art du coiffage à partir de 25€
+				<br>
+				Moins de 20 ans -10% - Technique spécifiques sur devis
+			</p>
+		</div>
+	</div>
+	<div class="row mt-5">
+		<h1 class="text-center text-uppercase">L'équipe</h1>
+		<div class="col-md-12 mx-auto my-5 text-center">
+			<table class="table table-borderless">
+				<tbody class="fs-3">
+					<tr>
+						<th class="p-5">Lea <br> <p class="fs-6">Patrone</p></th>
+						<th class="p-5">Davy <br> <p class="fs-6">The Boss</th>
+						<th class="p-5">Pati <br> <p class="fs-6">Maintenance</th>
+					</tr>
+					<tr>
+						<th class="p-5">Halima <br> <p class="fs-6">Coiffeuse</th>
+						<th class="p-5">David <br> <p class="fs-6">Coiffeur/Barbier(Rockeur)</th>
+						<th class="p-5">Julien S <br> <p class="fs-6">Coiffeur/Styliste</th>
+					</tr>
+					<tr>
+						<th class="p-5">Alex <br> <p class="fs-6">Technicien Chimiste</th>
+						<th class="p-5">Greg <br> <p class="fs-6">Creative Hairdresser</th>
+						<th class="p-5">Julien P <br> <p class="fs-6">Coiffeur/Barbier( l’homme le plus fort du monde)</th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 {% endblock %}

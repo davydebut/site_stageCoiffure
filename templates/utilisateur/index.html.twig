@@ -106,9 +106,27 @@
 						<th scope="col">Coiffeur</th>
 						<th scope="col">Status</th>
 						<th scope="col">Prestations</th>
+						{% if is_granted('ROLE_PRO') %}
+						<th scope="col"><button type="submit" class="btn btn-primary">Enregistrer</button></th>
+						{% endif %}
 						</tr>
 					</thead>
 					<tbody>
+					{% if is_granted('ROLE_PRO') %}
+						{% for professionel in professionels %}
+						<pre>
+							{{ dump(professionel) }}
+						</pre>
+							<tr>
+							<th scope="row">{{professionel.HeureDeRendezVous|date("d/m/Y à h:s")}}</th>
+							<td>{{professionel.idClient}}</td>
+							<td>{{professionel.status}}</td>
+							{# <td><option {% if professionel.status is  %}{% endif %}></option></td> #}
+							<td>{{professionel.prestation}}</td>
+							<td></td>
+							</tr>
+						{% endfor %}
+					{% endif %}
 					{% for reservation in reservations %}
 						<tr>
 						<th scope="row">{{reservation.HeureDeRendezVous|date("d/m/Y à h:s")}}</th>

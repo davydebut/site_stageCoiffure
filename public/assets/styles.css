@@ -12,3 +12,19 @@
     -moz-appearance: none;
     appearance: none;
 } */
+
+.scrolled {
+    background-color: black;
+    transition: background-color 600ms linear;
+    padding: 1em;
+}
+
+.scrolled a:nth-child(n+2) {
+    background-color: white;
+}
+
+.scrolled a:nth-child(n+2):hover {
+    background-color: #0d6efd;
+    transition: background-color 200ms linear;
+    color: white;
+}
