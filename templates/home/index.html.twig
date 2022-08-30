@@ -15,29 +15,8 @@
 	<div class="w-50 position-absolute top-0" style="height: 50rem; border-radius: 0 80px 0 0; z-index: -1; background-color: #8E7C68;"></div>
 {% endblock %}
 {% block body %}
-	{# <style>
-									.example-wrapper {
-									margin: 1em auto;
-									max-width: 800px;
-									width: 95%;
-									font: 18px/1.5 sans-serif;
-									}
-									.example-wrapper code {
-									background: #f5f5f5;
-									padding: 2px 6px;
-									}
-									</style> #}
-	{# <div class="example-wrapper">
-									<h1>Hello {{ controller_name }}! ✅</h1>
-									
-									This friendly message is coming from:
-									<ul>
-									<li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/stagecoiffure/site/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-									<li>Your template at <code><a href="{{ 'C:/xampp/htdocs/stagecoiffure/site/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-									</ul>
-									</div> #}
-	{# <div class="w-50 bg-danger position-absolute top-0" style="height: 20rem; border-radius: 0 80px 0 0"></div> #}
-		<div class="container-fluid mt-5"> <div class="row justify-content-start ms-5 mt-5 mb-5">
+	<div class="container-fluid mt-5">
+		<div class="row justify-content-start ms-5 mt-5 mb-5">
 			<div class="col-md-4 ms-5 mt-5">
 				<div class="card bg-transparent border-0 text-white ms-5 mt-5">
 					<div class="card-body">
@@ -75,13 +54,13 @@
 				<div class="col-md-6 offset-md-6">
 					<h1 class="text-uppercase text-center">Le salon</h1>
 					<p class="">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
-																																																															of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-																																																															professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-																																																															consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
-																																																															literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-																																																															of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
-																																																															book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
-																																																															Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+																																																																																																			of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+																																																																																																			professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+																																																																																																			consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
+																																																																																																			literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
+																																																																																																			of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+																																																																																																			book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
+																																																																																																			Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 				</div>
 				<div class="col-md-6 offset-md-6 mt-5">
 					<a href="#" class="btn btn-outline-light" style="color: #8E7C68; border-color:#8E7C68">Voir les photos</a>
@@ -174,5 +153,36 @@
 				</div>
 				{{form_end(contact)}}
 			</div>
+			<div class="col-md-3">
+				<div class="mx-auto w-75">
+					<img src="{{absolute_url('uploads/images/3a4292556f10fd1f21ed2fa42ed535fd.png')}}" alt="Contact!" class="img-fluid">
+				</div>
+				<p class="fs-4 position-relative text-end lh-lg">
+					<i class="bi bi-geo-alt position-absolute start-0"></i>33 Bd Louis Blanc, 87000 Limoges
+					<br>
+					<i class="bi bi-telephone position-absolute start-0"></i>05 55 77 50 44
+					<br>
+					<i class="bi bi-envelope position-absolute start-0"></i>dominique.bcoiffure@orange.fr
+				</p>
+			</div>
+			<div class="col-md-3 offset-md-1 mb-3 ratio ratio-1x1 w-25">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d695.0457459362556!2d1.2604414263741683!3d45.827618718193776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f933fd25ee54a7%3A0xf6cbcf6e349185eb!2sDominique%20B%20Limoges!5e0!3m2!1sfr!2sfr!4v1661842214869!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
 		</div>
+		{% block footer %}
+			<div class="row row-cols-auto justify-content-center fa-3x gx-5 my-5">
+				<div class="col">
+					<i class="fab fa-facebook-square"></i>
+				</div>
+				<div class="col">
+					<i class="fab fa-instagram"></i>
+				</div>
+				<div class="col">
+					<i class="fab fa-twitter"></i>
+				</div>
+				<div class="col">
+					<i class="fab fa-linkedin"></i>
+				</div>
+			</div>
+		{% endblock %}
 	{% endblock %}
