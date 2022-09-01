@@ -1,51 +1,54 @@
 {# si la route est app_utilisateur alors ajouter la class navbar-dark sinon laisser navbar-light #}
 {% if app.request.get('_route') != 'home' and app.request.get('_route') != 'admin' %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-{% else %}
-<nav class="navbar sticky-top navbar-expand-lg p-0 navbar-light menu">
-{% endif %}
-{# <nav class="navbar navbar-expand-lg p-0 ms-5 {{ path('app_utilisateur') ? 'navbar-dark' : 'navbar-light' }}"> #}
-{# {% if path('app_utilisateur') == true %}
-<nav class="navbar navbar-expand-lg p-0 ms-5 navbar-dark bg-dark">
-{% else %}
-  <nav class="navbar navbar-expand-lg p-0 ms-5 navbar-light">
-{% endif %} #}
-  <div class="collapse navbar-collapse ms-5" id="navbarNav">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4 text-uppercase">
-      <li class="nav-item ms-5">
-        <a class="nav-link text-white" href="{{ path('home') }}">Le salon</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">Photo</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">L'équipe</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-white" href="#">Nos produits</a>
-      </li>
-      <li class="nav-item">
-      {% if app.user %}
-        <a class="nav-link text-white" href="{{path('app_reservation')}}">Réservations</a>
-        {% else %}
-        <a class="nav-link text-white" href="{{path('app_login')}}">Réservations</a>
-      {% endif %}
-      </li>
-    </ul>
-    {% if app.user %}
-      {% if is_granted('ROLE_PRO') %}
-        <a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Espace Pro</a>
-      {% else %}
-        <a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Mon compte</a>
-      {% endif %}
-      {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PRO') %}
-      <a class="btn btn-outline-primary me-2" href="{{ path('admin') }}" role="button">admin</a>
-      {% endif %}
-      <a class="btn btn-outline-primary me-5" href="{{ path('app_logout') }}" role="button">Déconnexion</a>
-    {% else %}
-      <div>
-        <a class="btn btn-outline-primary me-5" href="{{ path('app_login') }}" role="button">Connexion</a>
-      </div>
-    {% endif %}
-  </div>
-</nav>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	{% else %}
+		<nav class="navbar sticky-top navbar-expand-lg p-0 navbar-light menu">
+		{% endif %}
+		{# <nav class="navbar navbar-expand-lg p-0 ms-5 {{ path('app_utilisateur') ? 'navbar-dark' : 'navbar-light' }}"> #}
+		{# {% if path('app_utilisateur') == true %}
+		<nav class="navbar navbar-expand-lg p-0 ms-5 navbar-dark bg-dark">
+		{% else %}
+		  <nav class="navbar navbar-expand-lg p-0 ms-5 navbar-light">
+		{% endif %} #}
+		<button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse ms-5" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-4 text-uppercase">
+				<li class="nav-item ms-5">
+					<a class="nav-link text-white" href="{{ path('home') }}">Le salon</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#">Photo</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#">L'équipe</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="#">Nos produits</a>
+				</li>
+				<li class="nav-item">
+					{% if app.user %}
+						<a class="nav-link text-white" href="{{path('app_reservation')}}">Réservations</a>
+					{% else %}
+						<a class="nav-link text-white" href="{{path('app_login')}}">Réservations</a>
+					{% endif %}
+				</li>
+			</ul>
+			{% if app.user %}
+				{% if is_granted('ROLE_PRO') %}
+					<a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Espace Pro</a>
+				{% else %}
+					<a class="btn btn-outline-primary me-5" href="{{ path('app_utilisateur') }}" role="button">Mon compte</a>
+				{% endif %}
+				{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_PRO') %}
+					<a class="btn btn-outline-primary me-2" href="{{ path('admin') }}" role="button">admin</a>
+				{% endif %}
+				<a class="btn btn-outline-primary me-5" href="{{ path('app_logout') }}" role="button">Déconnexion</a>
+			{% else %}
+				<div>
+					<a class="btn btn-outline-primary me-5" href="{{ path('app_login') }}" role="button">Connexion</a>
+				</div>
+			{% endif %}
+		</div>
+	</nav>

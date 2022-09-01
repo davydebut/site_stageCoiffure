@@ -1,0 +1,139 @@
+/* format mobile */
+@media only screen and (max-width: 480px) {
+
+    body {
+        display: block !important;
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .wrapper {
+        display: block !important;
+        margin: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+
+    .wrapper a {
+        display: block !important;
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    .custom-toggler.navbar-toggler {
+        border-color: rgb(255, 255, 255);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    #navbarSupportedContent,
+    #navbarSupportedContent ul {
+        margin: 0% !important;
+    }
+
+    #navbarSupportedContent>ul>li {
+        margin: 0% !important;
+    }
+
+    #navbarSupportedContent .btn {
+        margin: 0% !important;
+        color: white !important;
+        border-color: white !important;
+        background-color: #8E7C68 !important;
+    }
+
+    #navbarSupportedContent .btn:hover {
+        background-color: white !important;
+        color: #8E7C68 !important;
+    }
+
+    .block {
+        height: 60% !important;
+        width: 100% !important;
+    }
+
+    nav {
+        margin-left: 5% !important;
+        position: absolute !important;
+        top: 5% !important;
+    }
+
+    .row:first-child,
+    .row:first-child>* {
+        margin: 0% !important;
+        padding: 0% !important;
+    }
+
+    nav>.ms-5 {
+        margin: 0 !important;
+    }
+
+    .intro .card:first-child {
+        margin: 0 !important;
+    }
+
+    /* Pour calculer l'unité vw qui signifie viewport il faut savoir que 1vw = 1% de la taille de la fenêtre exemple :
+        taille de la fenêtre = 946px => 20vw = (20 * 946) / 100 = 18920 / 100 = 189.2px
+        ou encore : 946px => 1vw = (1 * 946) / 100 = 946 / 100 = 9.46px
+        ensuite 1rem = 16px => 16px * 1.3rem = 20.8px et .6vw = (0.6 * 410) / 100 = 246 / 100 = 2,46px ainsi
+        calc(1.3rem + .6vw) = 20.8px + 2.46px = 23.26px, par exemple un h3 avec une font-size de calc(1.3rem + .6vw) = 23.26px
+    */
+
+    .row:first-child h3,
+    p:nth-child(2n+3) {
+        font-size: calc(1rem + .6vw) !important;
+        text-align: right !important;
+    }
+
+    .prestations {
+        margin: auto !important;
+        margin-right: 0% !important;
+    }
+
+    .choix_produits {
+        display: flex !important;
+    }
+
+    .wrapper>a {
+        margin: auto !important;
+        width: 35% !important;
+    }
+
+    .row:first-child>.col-md-6:last-child {
+        position: absolute;
+        left: 0 !important;
+        z-index: -1;
+    }
+
+    .row:first-child>.col-md-6:last-child>img {
+        display: none !important;
+    }
+
+    .fs-5.mb-0 {
+        padding-left: 26%;
+        text-align: left !important;
+    }
+
+    .row:first-child p:nth-child(4) {
+        position: absolute;
+        right: 0%;
+        top: 5.9em;
+        font-size: calc(1rem + .6vw) !important;
+    }
+
+    nav.ms-5 {
+        margin-left: 5% !important;
+    }
+
+    .card-body {
+        padding-right: 0 !important;
+    }
+
+    .choix_produits {
+        margin-top: 3em;
+      }
+
+}
