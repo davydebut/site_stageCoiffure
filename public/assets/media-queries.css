@@ -1,5 +1,5 @@
 /* format mobile */
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 576px) {
 
     body {
         display: block !important;
@@ -82,7 +82,7 @@
         calc(1.3rem + .6vw) = 20.8px + 2.46px = 23.26px, par exemple un h3 avec une font-size de calc(1.3rem + .6vw) = 23.26px
     */
 
-    .row:first-child h3,
+    .row:first-child h4,
     p:nth-child(2n+3) {
         font-size: calc(1rem + .6vw) !important;
         text-align: right !important;
@@ -114,7 +114,8 @@
 
     .fs-5.mb-0 {
         padding-left: 26%;
-        text-align: left !important;
+        text-align: justify !important;
+        word-spacing: -0.3em;
     }
 
     .row:first-child p:nth-child(4) {
@@ -134,6 +135,92 @@
 
     .choix_produits {
         margin-top: 3em;
-      }
+    }
+
+    .salon {
+        border-radius: 40px 0 !important;
+        float: none !important;
+        text-align: center !important;
+        margin: auto !important;
+        width: 90% !important;
+    }
+
+    .bloc-salon {
+        text-align: center !important;
+    }
+
+    .img-1 {
+        display: none !important;
+    }
+
+    .bloc-tarifs>*,
+    .bloc-services>*,
+    .bloc-tarifs,
+    .bloc-services,
+    .bloc-tarifs>div>p,
+    .bloc-tarifs>div>h3,
+    .bloc-services>div>p,
+    .bloc-services>div>h3 {
+        position: unset !important;
+        margin: 0 !important;
+        padding: 0.3em !important;
+        text-align: center !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 1em !important;
+    }
+
+    .bloc-tarifs>div>p,
+    .bloc-services>div>p {
+        /* text-align: justify !important; */
+        font-size: calc(1rem + .6vw) !important;
+    }
+
+    .bloc-tarifs>div>p>br {
+        display: none !important;
+    }
+
+    .equipe>div>div>.col:last-child {
+        width: 100% !important;
+    }
+
+    .bloc-contact {
+        text-align: center;
+        margin-top: 20em !important;
+    }
+
+    form input,
+    form textarea {
+        order: 2;
+        width: 100% !important;
+        text-align: center;
+        margin: auto !important;
+    }
+
+    form div:nth-child(3)>div {
+        margin: 0 !important;
+    }
+
+    form div:nth-child(3)>div>div>button {
+        margin: 0 !important;
+        margin-top: 1em !important;
+    }
+
+    .bloc-contact div:nth-child(3)>div>.img-fluid {
+        position: absolute;
+        top: 300%;
+        left: 0;
+        z-index: -1;
+        opacity: .5;
+    }
+
+    .footer {
+        margin: 3rem 0 !important;
+    }
+
+    .carte {
+        width: 100% !important;
+    }
+
 
 }

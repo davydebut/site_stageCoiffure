@@ -1,4 +1,9 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+	{# Media Queries pour la page d'acceuil #}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/media-queries.css">
+{% endblock %}
 {% block title %}
 	LEA.C
 {% endblock %}
@@ -20,12 +25,12 @@
 			<div class="col-md-4 ms-5 mt-5 intro">
 				<div class="card bg-transparent border-0 text-white ms-5 mt-5">
 					<div class="card-body">
-						<h3>
+						<h4>
 							{{ title }}
-						</h3>
-						<h3>
+						</h4>
+						<h4>
 							{{ description }}
-						</h3>
+						</h4>
 						<p class="fs-5 mb-0">
 							{{ message }}
 						</p>
@@ -48,49 +53,49 @@
 				<img src="{{ asset('uploads/images/5c6f6a87579871.5e01e00d36ff8.jpg') }}" alt="" class="img-fluid border border-white border-5 p-3 bg-white" style="border-radius: 0 0 0 80px;"/>
 			</div>
 		</div>
-		<div class="row mt-5 justify-content-center">
+		<div class="row mt-5 justify-content-center bloc-salon">
 			<div class="col-md-6 mt-5">
-				<img src="{{ asset('uploads/images/About_001-1.jpg') }}" alt="" class="img-fluid w-50 float-start me-5" style="border-radius:80px 0;"/>
+				<img src="{{ asset('uploads/images/About_001-1.jpg') }}" alt="" class="img-fluid w-50 float-start me-5 salon" style="border-radius:80px 0;"/>
 				<div class="col-md-6 offset-md-6">
-					<h1 class="text-uppercase text-center">Le salon</h1>
+					<h2 class="text-uppercase text-center">Le salon</h2>
 					<p class="">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece
-																																																																																																									of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
-																																																																																																									professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
-																																																																																																									consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
-																																																																																																									literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-																																																																																																									of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
-																																																																																																									book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
-																																																																																																									Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+						of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin
+						professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words,
+						consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical
+						literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
+						of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This
+						book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
+						Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 				</div>
 				<div class="col-md-6 offset-md-6 mt-5">
 					<a href="#" class="btn btn-outline-light" style="color: #8E7C68; border-color:#8E7C68">Voir les photos</a>
 				</div>
 			</div>
 		</div>
-		<div class="row my-5 pb-5 position-relative">
+		<div class="row my-5 pb-5 position-relative bloc-tarifs">
 			<div class="col-md-6 offset-md-1 mb-3">
-				<h1 class="text-uppercase">Les Tarifs</h1>
+				<h2 class="text-uppercase">Les Tarifs</h2>
 			</div>
-			<div class="col-md-5 offset-md-1">
+			<div class="col-md-5 offset-md-1 img-1">
 				<img src="uploads/images/2000001978323.png" alt="" style="border-radius: 80px 0;" class="float-start w-50"/>
 			</div>
 			<div class="col-md-7 offset-md-3 position-absolute mt-3">
-				<h2 class="text-center text-uppercase my-5">Les coupes</h2>
+				<h3 class="text-center text-uppercase my-5">Les coupes</h3>
 				<p class="text-end fs-3 text-break pe-5">
-					Coupe homme 27€ - Barbe 20€ - CH + Barbe 45€ - Coupe courte femme 45€ Coupe mi-long femme 50€ - Coupe longue femme 55€<br>
+					Coupe homme 27€ - Barbe 20€ - CH + Barbe 45€ - Coupe courte femme 45€ - Coupe mi-long femme 50€ - Coupe longue femme 55€<br>
 					Couleur racines 33€ - Couleur sans ammoniaque 35€
 				</p>
 			</div>
-			<div class="col-md-3 offset-md-2 position-absolute top-50 mt-5">
+			<div class="col-md-3 offset-md-2 position-absolute top-50 mt-5 img-1">
 				<img src="uploads/images/80976a36583c54f377461f646410e0bb.jpg" alt="" class="w-75" style="border-radius: 80px 0;"/>
 			</div>
 		</div>
-		<div class="row mt-5 pt-5 position-relative">
-			<div class="col-md-6 offset-md-1 mt-5 pt-4">
+		<div class="row mt-5 pt-5 position-relative bloc-services">
+			<div class="col-md-6 offset-md-1 mt-5 pt-4 img-1">
 				<img src="uploads/images/102017c834008c31305591150f2e504b.jpg" alt="" style="border-radius: 80px 0;"/>
 			</div>
 			<div class="col-md-7 offset-md-3 position-absolute mt-5">
-				<h2 class="text-uppercase mt-3 text-center mb-5">Autres Services</h2>
+				<h3 class="text-uppercase mt-3 text-center mb-5">Autres Services</h3>
 				<p class="text-end fs-3 text-break pe-4">
 					Dose de couleur 8€ - Gloss et patines 19€ - Rituels Bain SPA à partir de 29€
 					<br>
@@ -100,10 +105,10 @@
 				</p>
 			</div>
 		</div>
-		<div class="row mt-5">
-			<h1 class="text-center text-uppercase">L'équipe</h1>
+		<div class="row mt-5 equipe">
+			<h2 class="text-center text-uppercase">L'équipe</h2>
 			<div class="col-md-12 mx-auto my-5 text-center">
-				<div class="row row-cols-3 fs-3 gy-5">
+				<div class="row row-cols-2 row-cols-lg-3 fs-3 gy-5">
 					<div class="col">Lea<p class="fs-6">Patrone</p>
 					</div>
 					<div class="col">Davy<p class="fs-6">The Boss</p>
@@ -131,10 +136,10 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mt-5">
-			<h1 class="text-center text-uppercase">Contact</h1>
+		<div class="row mt-5 bloc-contact">
+			<h2 class="text-center text-uppercase">Contact</h2>
 			<div class="col-md-3 offset-md-1 mb-3">
-				<h1 class="fs-3">Parlons-en !</h1>
+				<h3 class="fs-3">Parlons-en !</h3>
 				<p class="fs-6">Pour demander un devis ou pour prendre un café, contactez-nous directement ou remplissez le formulaire et nous vous répondrons rapidement.</p>
 				{{form_start(contact)}}
 				<div class="mt-4">
@@ -155,7 +160,7 @@
 			</div>
 			<div class="col-md-3">
 				<div class="mx-auto w-75">
-					<img src="{{absolute_url('uploads/images/3a4292556f10fd1f21ed2fa42ed535fd.png')}}" alt="Contact!" class="img-fluid">
+					<img src="{{absolute_url('uploads/images/3a4292556f10fd1f21ed2fa42ed535fd.png')}}" alt="Contact!" class="img-fluid img-contact">
 				</div>
 				<p class="fs-4 position-relative text-end lh-lg">
 					<i class="bi bi-geo-alt position-absolute start-0"></i>33 Bd Louis Blanc, 87000 Limoges
@@ -165,12 +170,12 @@
 					<i class="bi bi-envelope position-absolute start-0"></i>dominique.bcoiffure@orange.fr
 				</p>
 			</div>
-			<div class="col-md-3 offset-md-1 mb-3 ratio ratio-1x1 w-25">
+			<div class="col-md-3 offset-md-1 mb-3 ratio ratio-1x1 w-25 carte">
 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d695.0457459362556!2d1.2604414263741683!3d45.827618718193776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f933fd25ee54a7%3A0xf6cbcf6e349185eb!2sDominique%20B%20Limoges!5e0!3m2!1sfr!2sfr!4v1661842214869!5m2!1sfr!2sfr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 			</div>
 		</div>
 		{% block footer %}
-			<div class="row row-cols-auto justify-content-center fa-3x gx-5 my-5">
+			<div class="row row-cols-auto justify-content-center fa-3x gx-5 my-5 footer">
 				<div class="col">
 					<i class="fab fa-facebook-square"></i>
 				</div>

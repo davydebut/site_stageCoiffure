@@ -1,0 +1,45 @@
+@media only screen and (max-width: 576px) {
+
+    #navbarSupportedContent {
+        margin: auto !important;
+        text-align: center !important;
+    }
+
+    #navbarSupportedContent>ul>li:first-child {
+        margin-left: 0 !important;
+    }
+
+    #navbarSupportedContent>a.btn {
+        margin: 0 !important;
+        margin: 0 1rem !important;
+    }
+
+    nav>button:first-child {
+        margin-left: 1rem !important;
+    }
+
+    .fa-7x {
+        font-size: 3rem !important;
+    }
+
+    #v-pills-profile>div {
+        margin: 0 !important;
+    }
+
+    #v-pills-tab {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        height: 100% !important;
+        justify-content: space-between;
+        margin: 0 !important;
+    }
+
+    .d-flex.mt-4 {
+        display: block !important;
+    }
+
+    #v-pills-profile > div > form > ul > div > div {
+        width: 100% !important;
+    }
+
+}
