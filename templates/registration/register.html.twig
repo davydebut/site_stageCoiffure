@@ -1,4 +1,8 @@
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="/assets/media-queries-register.css">
+{% endblock %}
 
 {% block title %}Register
 {% endblock %}
@@ -31,7 +35,7 @@
 							{{form_label(registrationForm.date_de_naissance, null, {label_attr: {class: 'input-group-text', id: 'basic-addon1'}})}}
 							{{form_widget(registrationForm.date_de_naissance, {attr: {class: 'form-control', aria:'basic-addon1'}})}}
 						</div>
-						<div class="form-check">
+						<div class="form-check mobile-disparition">
 							{{form_label(registrationForm.agreeTerms, null, {label_attr: {class: 'form-check-label', id: 'flexCheckDefault'}})}}
 							{{form_widget(registrationForm.agreeTerms, {attr: {class: 'form-check-input', aria:'flexCheckDefault'}})}}
 						</div>
@@ -54,7 +58,7 @@
 						<div class="input-group">
 							{{ form_label(registrationForm.ville, null, {label_attr: {class: 'input-group-text'}})}}
 							{{ form_widget(registrationForm.ville, {attr: {class: 'form-control'}})}}
-						</div>
+						</div>			
 						<div class="form-check">
 							{{ form_label(registrationForm.promotions, null, {label_attr: {class: 'form-check-label'}}) }}
 							{{ form_widget(registrationForm.promotions, {attr: {class: 'form-check-input'}}) }}

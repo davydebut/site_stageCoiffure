@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use function Symfony\Component\String\s;
+
 class ReservationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -20,6 +22,9 @@ class ReservationType extends AbstractType
                 'widget' => 'choice',
                 'hours' => range(8,19),
                 'date_widget' => 'single_text',
+                'date_label' => 'Date',
+                'time_label' => 'Heure',
+                'time_widget' => 'choice',
             ])
             ->add('prestation')
             ->add('pro', EntityType::class, [

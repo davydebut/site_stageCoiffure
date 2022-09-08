@@ -1,0 +1,33 @@
+@media only screen and (max-width: 576px) {
+
+      .card div:nth-child(2) {
+        display: block !important;
+      }
+
+      .card > div {
+        height: auto !important;
+      }
+
+      .card > div > div {
+        position: relative !important;
+        transform: none !important;
+        left: auto !important;
+        padding:  3rem !important;
+        height: auto !important;
+        border: none !important;
+      }
+
+      .input-group > input, .input-group > label {
+        width: 100% !important;
+      }
+
+      .input-group > label {
+        margin-top: 1rem !important;
+      }
+
+      .mobile-disparition {
+        position: absolute;
+        top: calc(31rem + 64vw);
+        left: calc(20vh + 20vw);
+      }
+}

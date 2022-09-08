@@ -32,6 +32,7 @@
     #navbarSupportedContent,
     #navbarSupportedContent ul {
         margin: 0% !important;
+        text-align: start !important;
     }
 
     #navbarSupportedContent>ul>li {
@@ -43,6 +44,9 @@
         color: white !important;
         border-color: white !important;
         background-color: #8E7C68 !important;
+        margin-right: 0% !important;
+        margin-left: 0% !important;
+        width: auto !important;
     }
 
     #navbarSupportedContent .btn:hover {
@@ -113,9 +117,9 @@
     }
 
     .fs-5.mb-0 {
-        padding-left: 26%;
+        padding-left: 40%;
         text-align: justify !important;
-        word-spacing: -0.3em;
+        /* word-spacing: -0.3em; */
     }
 
     .row:first-child p:nth-child(4) {

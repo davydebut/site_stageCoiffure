@@ -1,5 +1,10 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+{{ parent()}}
+<link rel="stylesheet" href="/assets/media-queries-reservation.css">
+{% endblock %}
+
 {% block title %}Hello ReservationController!
 {% endblock %}
 
@@ -8,12 +13,36 @@
 	{# <pre>
     {{ dump(app.user.firstname) }}
     </pre> #}
-
+<div class="container-md">
+<div class="row gx-5 justify-content-center">
+<div class="col-8 col-sm-8">
+	<form class="mt-3">
 	{{ form_start(form) }}
-
-	{{form_row(form.pro)}}
+	{# {{form_row(form.pro)}} #}
+	<div class="input-group">
+		{{form_label(form.pro, 'Professionnel', {'label_attr': {'class': 'input-group-text'}})}}
+		{{form_widget(form.pro, {'attr': {'class': 'form-control'}})}}
+	</div>
+		{% for Date in form.heure_de_rendez_vous %}
+		<div class="input-group">
+			{{form_label(Date, Date.vars.label, {'label_attr': {'class': 'input-group-text'}})}}
+			{{form_widget(Date, {'attr': {'class': 'form-control'}})}}
+		</div>
+		{% endfor %}
+	<div class="input-group">
+	{{form_label(form.prestation, 'Prestation', {'label_attr': {'class': 'input-group-text'}})}}
+	{{form_widget(form.prestation, {'attr': {'class': 'form-select'}})}}
+		{# {{form_label(form.heure_de_rendez_vous, 'Heure de rendez-vous', {'label_attr': {'class': 'input-group-text'}})}} #}
+		{# {{form_widget(form.heure_de_rendez_vous, {'attr': {'class': 'form-control'}})}} #}
+	</div>
+	<div class="input-group">
+	</div>
 
 	<button type="submit" class="btn btn-outline-primary">Register</button>
 
 	{{ form_end(form) }}
+	</form>
+</div>
+</div>
+</div>
 {% endblock %}
