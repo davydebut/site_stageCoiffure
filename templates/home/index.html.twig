@@ -9,7 +9,7 @@
 {% endblock %}
 {% block logo %}
 	<div class="wrapper d-flex align-items-center mt-5 ms-5">
-		<a href="{{ path('home') }}" class="nav-link p-0 w-100 d-flex">
+		<a href="{{ path('home') }}" class="nav-link p-0 d-flex">
 			<img src="{{ asset('uploads/images/logo-removebg-preview.png') }}" alt="logo" width="120" height="96" class="d-inline-block align-text-center me-2"/>
 			<div class="d-block text-uppercase lh-1">
 				<h1 class="mb-0 display-4 fw-normal text-white">Lea.C</h1>
@@ -44,7 +44,7 @@
 								<a href="{{ path('app_login') }}" class="btn btn-light" style="color: #8E7C68">
 									Prendre rendez-vous</a>
 							{% endif %}
-							<a href="{{ path('app_login') }}" class="btn btn-outline-light me-5 ms-4 prestations">Nos prestations</a>
+							<a href="#services" class="btn btn-outline-light me-5 ms-4 prestations">Nos prestations</a>
 						</div>
 					</div>
 				</div>
@@ -67,20 +67,20 @@
 						book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of
 						Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
 				</div>
-				<div class="col-md-6 offset-md-6 mt-5">
+				{# <div class="col-md-6 offset-md-6 mt-5">
 					<a href="#" class="btn btn-outline-light" style="color: #8E7C68; border-color:#8E7C68">Voir les photos</a>
-				</div>
+				</div> #}
 			</div>
 		</div>
 		<div class="row my-5 pb-5 position-relative bloc-tarifs">
 			<div class="col-md-6 offset-md-1 mb-3">
-				<h2 class="text-uppercase">Les Tarifs</h2>
+				<h2 class="text-uppercase" id="tarifs">Les Tarifs</h2>
 			</div>
 			<div class="col-md-5 offset-md-1 img-1">
 				<img src="uploads/images/2000001978323.png" alt="" style="border-radius: 80px 0;" class="float-start w-50"/>
 			</div>
 			<div class="col-md-7 offset-md-3 position-absolute mt-3">
-				<h3 class="text-center text-uppercase my-5">Les coupes</h3>
+				<h3 class="text-center text-uppercase my-5" id="services">Les coupes</h3>
 				<p class="text-end fs-3 text-break pe-5">
 					Coupe homme 27€ - Barbe 20€ - CH + Barbe 45€ - Coupe courte femme 45€ - Coupe mi-long femme 50€ - Coupe longue femme 55€<br>
 					Couleur racines 33€ - Couleur sans ammoniaque 35€
@@ -106,7 +106,7 @@
 			</div>
 		</div>
 		<div class="row mt-5 equipe">
-			<h2 class="text-center text-uppercase">L'équipe</h2>
+			<h2 class="text-center text-uppercase" id="equipe">L'équipe</h2>
 			<div class="col-md-12 mx-auto my-5 text-center">
 				<div class="row row-cols-2 row-cols-lg-3 fs-3 gy-5">
 					<div class="col">Lea<p class="fs-6">Patrone</p>
@@ -136,32 +136,33 @@
 				</div>
 			</div>
 		</div>
-		<div class="row mt-5 bloc-contact">
-			<h2 class="text-center text-uppercase">Contact</h2>
+		<div class="row bloc-contact">
+		<div class="mx-auto w-75 text-center">
+					<img src="{{absolute_url('uploads/images/3a4292556f10fd1f21ed2fa42ed535fd.png')}}" alt="Contact!" class="img-fluid img-contact">
+				</div>
+			<h2 class="text-center text-uppercase" id="contact">Contact</h2>
 			<div class="col-md-3 offset-md-1 mb-3">
 				<h3 class="fs-3">Parlons-en !</h3>
 				<p class="fs-6">Pour demander un devis ou pour prendre un café, contactez-nous directement ou remplissez le formulaire et nous vous répondrons rapidement.</p>
 				{{form_start(contact)}}
 				<div class="mt-4">
-					{{form_label(contact.FirstName)}}
+					{{form_label(contact.FirstName, 'Prénom')}}
 					{{form_widget(contact.FirstName, {attr:{class: 'form-control rounded-pill w-75'}})}}
 				</div>
-				<div class="mt-4">{{form_label(contact.EmailAddress)}}
+				<div class="mt-4">{{form_label(contact.EmailAddress, 'Email')}}
 					{{form_widget(contact.EmailAddress, {attr:{class: 'form-control rounded-pill w-75'}})}}
 				</div>
 				<div class="mt-4">
-					{{form_label(contact.YourMessage)}}
+					{{form_label(contact.YourMessage, 'Votre message')}}
 					{{form_widget(contact.YourMessage, {attr:{class: 'form-control rounded-3 w-75', placeholder: 'Tapez quelque chose si vous voulez...', rows:"3"}})}}
 					<div class="ms-5 my-3">
-						{{form_row(contact.EnvoyerLeMessage, {attr:{class: 'btn btn-primary ms-5'}})}}
+						{{form_row(contact.EnvoyerLeMessage, {attr:{class: 'btn bouton ms-5'}})}}
 					</div>
 				</div>
 				{{form_end(contact)}}
 			</div>
 			<div class="col-md-3">
-				<div class="mx-auto w-75">
-					<img src="{{absolute_url('uploads/images/3a4292556f10fd1f21ed2fa42ed535fd.png')}}" alt="Contact!" class="img-fluid img-contact">
-				</div>
+				
 				<p class="fs-4 position-relative text-end lh-lg">
 					<i class="bi bi-geo-alt position-absolute start-0"></i>33 Bd Louis Blanc, 87000 Limoges
 					<br>
@@ -175,18 +176,26 @@
 			</div>
 		</div>
 		{% block footer %}
-			<div class="row row-cols-auto justify-content-center fa-3x gx-5 my-5 footer">
+			<div class="row row-cols-auto justify-content-center fa-3x gx-5 my-5 mx-0 footer">
 				<div class="col">
+				<a href="#" class="text-dark">
 					<i class="fab fa-facebook-square"></i>
+				</a>
 				</div>
 				<div class="col">
+				<a href="#" class="text-dark">
 					<i class="fab fa-instagram"></i>
+					</a>
 				</div>
 				<div class="col">
+				<a href="#" class="text-dark">
 					<i class="fab fa-twitter"></i>
+					</a>
 				</div>
 				<div class="col">
+				<a href="#" class="text-dark">
 					<i class="fab fa-linkedin"></i>
+					</a
 				</div>
 			</div>
 		{% endblock %}

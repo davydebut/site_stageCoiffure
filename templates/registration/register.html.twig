@@ -35,10 +35,6 @@
 							{{form_label(registrationForm.date_de_naissance, null, {label_attr: {class: 'input-group-text', id: 'basic-addon1'}})}}
 							{{form_widget(registrationForm.date_de_naissance, {attr: {class: 'form-control', aria:'basic-addon1'}})}}
 						</div>
-						<div class="form-check mobile-disparition">
-							{{form_label(registrationForm.agreeTerms, null, {label_attr: {class: 'form-check-label', id: 'flexCheckDefault'}})}}
-							{{form_widget(registrationForm.agreeTerms, {attr: {class: 'form-check-input', aria:'flexCheckDefault'}})}}
-						</div>
 					</div>
 					<div class="col-md-5 offset-md-1">
 						<div class="d-flex justify-content-between">
@@ -49,8 +45,10 @@
 								</div>
 							{% endfor %}
 						</div>
-						{{ form_label(registrationForm.adresse, null, {label_attr: {class: 'form-label'}})}}
-						{{ form_widget(registrationForm.adresse, {attr: {class: 'form-control'}})}}
+						<div class="input-group">
+						{{ form_label(registrationForm.adresse, null, {label_attr: {class: 'input-group-text'}})}}
+						{{ form_widget(registrationForm.adresse, {attr: {class: 'form-control w-100'}})}}
+						</div>
 						<div class="input-group">
 							{{ form_label(registrationForm.code_postal, null, {label_attr: {class: 'input-group-text'}})}}
 							{{ form_widget(registrationForm.code_postal, {attr: {class: 'form-control'}})}}
@@ -58,11 +56,17 @@
 						<div class="input-group">
 							{{ form_label(registrationForm.ville, null, {label_attr: {class: 'input-group-text'}})}}
 							{{ form_widget(registrationForm.ville, {attr: {class: 'form-control'}})}}
-						</div>			
+						</div>		
+						<div class="d-flex justify-content-between">
 						<div class="form-check">
 							{{ form_label(registrationForm.promotions, null, {label_attr: {class: 'form-check-label'}}) }}
 							{{ form_widget(registrationForm.promotions, {attr: {class: 'form-check-input'}}) }}
 						</div>
+						<div class="form-check">
+							{{form_label(registrationForm.agreeTerms, null, {label_attr: {class: 'form-check-label', id: 'flexCheckDefault'}})}}
+							{{form_widget(registrationForm.agreeTerms, {attr: {class: 'form-check-input', aria:'flexCheckDefault'}})}}
+						</div>
+						</div>	
 						<div class="form-check">
 							{{ form_label(registrationForm.alerteSMS, null, {label_attr: {class: 'form-check-label'}}) }}
 							{{ form_widget(registrationForm.alerteSMS, {attr: {class: 'form-check-input'}}) }}

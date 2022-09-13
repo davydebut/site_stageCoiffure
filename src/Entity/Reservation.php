@@ -4,6 +4,7 @@ namespace App\Entity;
 use App\Entity\Client;
 use App\Repository\ReservationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReservationRepository::class)]
@@ -15,6 +16,7 @@ class Reservation
     private $id;
 
     #[ORM\Column(type: 'datetime')]
+    #[Assert\GreaterThan('today', message:"Ce créneau ne peut pas être réservé.")]
     private $heure_de_rendez_vous;
 
     #[ORM\Column(type: 'string')]

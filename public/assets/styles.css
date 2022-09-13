@@ -105,6 +105,39 @@
     font-weight: 700;
 }
 
+.bouton {
+    color: #8E7C68 !important;
+    border-color: #8E7C68 !important;
+}
+
+.bouton:hover {
+    background-color: #f8f9fa !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show, .nav-pills .nav-link{
+	color: #fff;
+	background-color: #8E7C68;
+}
+
+.btn-outline-primary {
+    color: #8E7C68;
+    border-color: #8E7C68;
+}
+
+.form-check-input:checked {
+	background-color: #8e7c68;
+	border-color: #f8f9fa;
+}
+
+.form-check-input:focus {
+	border-color: #8E7C68;
+	box-shadow: 0 0 0 .25rem hsla(32, 15%, 48%, 0.251);
+}
+
+.form-switch .form-check-input:focus {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%238e7c68'/%3e%3c/svg%3e");
+}
+
 /* media queries pour le menu */
 
 @media only screen and (max-width: 576px) {

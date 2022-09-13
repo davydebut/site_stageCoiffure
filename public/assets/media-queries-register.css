@@ -27,7 +27,6 @@
 
       .mobile-disparition {
         position: absolute;
-        top: calc(31rem + 64vw);
-        left: calc(20vh + 20vw);
+        top: calc(38rem + 65vw);
       }
 }

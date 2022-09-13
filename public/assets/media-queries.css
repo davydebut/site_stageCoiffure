@@ -60,9 +60,9 @@
     }
 
     nav {
-        margin-left: 5% !important;
-        position: absolute !important;
-        top: 5% !important;
+        /* margin-left: 5% !important;
+        position: absolute !important; */
+        /* top: 5% !important; */
     }
 
     .row:first-child,
@@ -190,7 +190,7 @@
 
     .bloc-contact {
         text-align: center;
-        margin-top: 20em !important;
+        /* margin-top: 20em !important; */
     }
 
     form input,
@@ -210,11 +210,7 @@
         margin-top: 1em !important;
     }
 
-    .bloc-contact div:nth-child(3)>div>.img-fluid {
-        position: absolute;
-        top: 300%;
-        left: 0;
-        z-index: -1;
+    .bloc-contact div:nth-child(1) > .img-fluid {
         opacity: .5;
     }
 

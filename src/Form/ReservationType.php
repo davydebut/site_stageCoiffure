@@ -20,7 +20,8 @@ class ReservationType extends AbstractType
         $builder
             ->add('heure_de_rendez_vous', DateTimeType::class, [
                 'widget' => 'choice',
-                'hours' => range(8,19),
+                'hours' => range(8,18),
+                'minutes' => [0, 30],
                 'date_widget' => 'single_text',
                 'date_label' => 'Date',
                 'time_label' => 'Heure',
