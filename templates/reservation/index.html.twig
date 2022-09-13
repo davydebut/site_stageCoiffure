@@ -25,7 +25,7 @@
 				{% for Date in form.heure_de_rendez_vous %}
 					<div class="input-group mt-2">
 						{{form_label(Date, Date.vars.label, {'label_attr': {'class': 'input-group-text'}})}}
-						{{form_widget(Date, {'attr': {'class': 'form-control'}})}}
+						{{form_widget(Date, {'attr': {'class': 'form-control', min: "now"|date("Y-m-d")}})}}
 					</div>
 				{% endfor %}
 					<div>{{ form_errors(form.heure_de_rendez_vous)}}</div>
